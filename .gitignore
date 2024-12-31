@@ -1,4 +1,5 @@
 access.log
+@output.css
 
 # Logs
 logs
