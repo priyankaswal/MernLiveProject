@@ -1,5 +1,6 @@
 access.log
-@output.css
+public/styles/output.css
+
 
 # Logs
 logs
