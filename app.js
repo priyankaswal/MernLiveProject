@@ -45,8 +45,6 @@ const storage = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-  // const isValidFile = file.mimetype === 'image/png' || file.mimetype === 'image/jpeg' || file.mimetype === 'image/jpg';
-
   const isValidFile = ["image/png", "image/jpeg", "image/jpg"].includes(
     file.mimetype
   );
@@ -79,11 +77,6 @@ app.use(
     store: sessionStore,
   })
 );
-
-// app.use((req, res, next) => {
-//   req.isLoggedIn = req.get("Cookie").split("=")[1] === "true";
-//   next();
-// });
 
 app.use(storeRouter);
 app.use("/host", (req, res, next) => {
