@@ -53,7 +53,7 @@ const fileFilter = (req, file, cb) => {
 };
 
 const loggingPath = path.join(rootDir, 'access.log');
-const loggingStream = fs.createWriteStream(loggingPath, {file: "a"});
+const loggingStream = fs.createWriteStream(loggingPath, { flags: "a" });
 
 const app = express();
 
@@ -71,7 +71,7 @@ app.use(multer({ storage, fileFilter }).single("photo"));
 
 app.use(
   session({
-    secret: "MERN_LIVE_BATCH",
+    secret: process.env.SESSION_SECRET || "fallbackSecret",
     resave: false,
     saveUninitialized: true,
     store: sessionStore,
@@ -90,7 +90,7 @@ app.use("/host", hostRouter);
 app.use(authRouter);
 app.use(errorController.get404);
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 mongoose.connect(MONGO_DB_URL).then(() => {
   app.listen(PORT, () => {

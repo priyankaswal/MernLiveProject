@@ -4,9 +4,10 @@
   "description": " ",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "postinstall": "npm install",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tailwind": "npx tailwindcss -i ./public/styles/input.css -o ./public/styles/output.css",
-    "start": "node app.js"
+    "tailwind": "npx tailwindcss -i ./public/styles/input.css -o ./public/styles/output.css"
   },
   "author": "",
   "license": "ISC",
